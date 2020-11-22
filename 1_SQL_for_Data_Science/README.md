@@ -36,12 +36,13 @@ viii. photo table       = 10000
 ix.   review table      = 10000
 x.    tip table         = 10000
 xi.   user table        = 10000
-	
+
+```
 /**********SQL Code*********/
 SELECT COUNT(*)
 FROM TABLE
 /***************************/
-
+```
 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
 
 i.    Business    = 10000
@@ -69,6 +70,7 @@ FROM TABLE
 	
 	
 	SQL code used to arrive at answer:
+```
 /**********SQL Code*********/
 SELECT COUNT(*)
 FROM user
@@ -93,7 +95,7 @@ WHERE id IS NULL
 	OR compliment_writer IS NULL
 	OR compliment_photos IS NULL
 /***************************/
-	
+```	
 	
 4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
