@@ -74,8 +74,3 @@ From user
 | id   | name   | review_count | yelping_since |useful |funny |cool |fans |average_stars |compliment_hot |compliment_more |compliment_profile |compliment_cute |compliment_list |compliment_note |compliment_plain |compliment_cool |compliment_funny |compliment_writer | compliment_photos |
 +------------------------+--------+--------------+---------------------+--------+-------+------+------+---------------+----------------+-----------------+--------------------+-----------------+-----------------+-----------------+------------------+-----------------+------------------ 
 | ---1l| Monera |          245 | 2007-06-04    |   67 |    22 |   9 |  15 |         3.97 |             2 |              3 |                 2 |              1 |              0 |              5 |               9 |              9 |               9 |                9 |                0 |
-
-
-Select *
-From elite_years
-Limit 1
