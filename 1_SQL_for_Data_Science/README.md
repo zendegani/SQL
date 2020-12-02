@@ -66,6 +66,7 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 
 
 	SQL code used to arrive at answer:
+	
 			/**********SQL Code*********/
 			SELECT COUNT(*)
 			FROM user
@@ -130,6 +131,7 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 5. List the cities with the most reviews in descending order:
 
 	SQL code used to arrive at answer:
+	
 				/**********SQL Code*********/
 				SELECT city
 					,SUM(review_count) AS N_review
@@ -177,6 +179,7 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 i. Avon
 
 SQL code used to arrive at answer:
+
 				/**********SQL Code*********/
 				SELECT Stars As 'Star Rating'
 					,Count(stars) AS Count
@@ -188,6 +191,7 @@ SQL code used to arrive at answer:
 
 
 Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+
 				+-------------+-------+
 				| Star Rating | Count |
 				+-------------+-------+
@@ -202,6 +206,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 ii. Beachwood
 
 SQL code used to arrive at answer:
+
 				/**********SQL Code*********/
 				SELECT Stars As 'Star Rating'
 					,Count(stars) AS Count
@@ -213,6 +218,7 @@ SQL code used to arrive at answer:
 
 
 Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+
 				+-------------+-------+
 				| Star Rating | Count |
 				+-------------+-------+
@@ -229,6 +235,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 7. Find the top 3 users based on their total number of reviews:
 
 	SQL code used to arrive at answer:
+	
 				/**********SQL Code*********/
 				SELECT name
 					,review_count
@@ -238,6 +245,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 
 
 	Copy and Paste the Result Below:
+	
 				+--------+--------------+
 				| name   | review_count |
 				+--------+--------------+
@@ -287,6 +295,7 @@ As it shows different values, it implies that there are other factors that affec
 				+------+------+
 
 	SQL code used to arrive at answer:
+	
 				/**********SQL Code*********/
 				SELECT COUNT(CASE
 							WHEN TEXT LIKE '%love%'
@@ -304,6 +313,7 @@ As it shows different values, it implies that there are other factors that affec
 10. Find the top 10 users with the most fans:
 
 	SQL code used to arrive at answer:
+	
 				/**********SQL Code*********/
 				SELECT name
 					,fans
@@ -334,11 +344,10 @@ Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
 
-				City: 		Toronto
-				Category: Food
+				City:		Toronto
+				Category:	Food
 
 i. Do the two groups you chose to analyze have a different distribution of hours?
-
 				Yes. The group with higher stars are only open in the afternoon, while the group with the lower stars are open almost the whole day.
 
 				+--------------+-------+------------------------------------------------------------------------------+
@@ -350,7 +359,6 @@ i. Do the two groups you chose to analyze have a different distribution of hours
 				+--------------+-------+------------------------------------------------------------------------------+
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
-
 				Yes. The higher the number of review, the higher the rating.
 
 				+--------------+-------+----------+
@@ -362,7 +370,6 @@ ii. Do the two groups you chose to analyze have a different number of reviews?
 				+--------------+-------+----------+
 
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
-
 				Not really. Yet it seems the lower rating belongs to the business inside a shopping centre which doesn't apply to the higher ratings ones.'
 
 				+--------------+-------+----------------------+-------------+
@@ -374,6 +381,7 @@ iii. Are you able to infer anything from the location data provided between thes
 				+--------------+-------+----------------------+-------------+
 
 SQL code used for analysis:
+
 				/**********SQL Code*********/
 				SELECT b.name
 					-- 	,b.city
@@ -396,8 +404,8 @@ SQL code used for analysis:
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 
 i. Difference 1:
-
 				The open ones have higher rating and number of reviews on average.
+				
 				+-------+----------+--------+
 				| Satrs | # Review | STATUS |
 				+-------+----------+--------+
@@ -406,6 +414,7 @@ i. Difference 1:
 				+-------+----------+--------+
 
 SQL code used for analysis:
+
 				/**********SQL Code*********/
 				SELECT ROUND(AVG(b.stars), 2) AS Satrs
 					,ROUND(AVG(b.review_count), 1) AS '# Review'
@@ -421,8 +430,8 @@ SQL code used for analysis:
 				/***************************/
 
 ii. Difference 2:
-
 				The open businesses are received more full text reviews.
+				
 				+----------+------------+--------+
 				| Positive | # FullText | STATUS |
 				+----------+------------+--------+
@@ -431,6 +440,7 @@ ii. Difference 2:
 				+----------+------------+--------+
 
 SQL code used for analysis:
+
 				/**********SQL Code*********/
 				SELECT Count(CASE
 							WHEN lower(r.TEXT) LIKE '%fantastic%'
@@ -458,11 +468,9 @@ SQL code used for analysis:
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 
 i. Indicate the type of analysis you chose to do:
-
 				I want to see if neighborhood affects the ratings.
 
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-
 				To be able to figure out if there is a correlation between the neighborhood and the ratings, we need fair amount of data.
 				Therefore I only check neighborhoods that at least have nine reviews.
 				To do so I need 'id' 'neighborhood' from table 'business' together with 'id','business_id', and 'stars' from 'review' table.
@@ -472,6 +480,7 @@ ii. Write 1-2 brief paragraphs on the type of data you will need for your analys
 				For example 'Spring Valley' tends to receive highest ratings and 'Southeast' the lowest.
 
 iii. Output of your finished dataset:
+
 				+-----------+---------------+---------+------+----+----+------+------+------+
 				| city      | neighborhood  | # Reviw | Avg. | 5* | 4* |   3* |   2* |   1* |
 				+-----------+---------------+---------+------+----+----+------+------+------+
@@ -484,6 +493,7 @@ iii. Output of your finished dataset:
 				+-----------+---------------+---------+------+----+----+------+------+------+
 
 iv. Provide the SQL code you used to create your final dataset:
+
 				/**********SQL Code*********/
 				SELECT b.city
 					,b.neighborhood
